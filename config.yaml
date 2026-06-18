@@ -1,0 +1,39 @@
+# Arcanea Agent profile defaults.
+# Users keep their own provider credentials and can change these in Hermes settings.
+
+model:
+  provider: openai-codex
+  default: gpt-5.5
+
+agent:
+  max_turns: 90
+  tool_use_enforcement: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+
+compression:
+  enabled: true
+
+approvals:
+  mode: manual
+
+security:
+  redact_secrets: true
+
+mcp_servers:
+  arcanea_registry:
+    command: node
+    args:
+      - C:/Users/frank/Arcanea/packages/arcanea-registry-mcp/dist/cli.js
+    env:
+      SUPABASE_URL: "${SUPABASE_URL}"
+      SUPABASE_SERVICE_ROLE_KEY: "${SUPABASE_SERVICE_ROLE_KEY}"
+    timeout: 120
+    connect_timeout: 60
+    enabled: false
+
+# Arcanea surfaces should come from profile skills/MCP/plugins first.
+# Avoid changing Hermes core toolsets here unless the user opts in.
+# The registry MCP is disabled until its package is built and env posture is confirmed.

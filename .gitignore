@@ -1,0 +1,16 @@
+# Hermes/user runtime state must never ship in a profile distribution
+.env
+auth.json
+state.db*
+memories/
+sessions/
+logs/
+plans/
+workspace/
+home/
+cache/
+*_cache/
+node_modules/
+dist/
+.DS_Store
+Thumbs.db

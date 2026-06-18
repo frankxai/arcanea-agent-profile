@@ -1,7 +1,7 @@
 ---
 name: arcanea-start
 description: "Start or resume an Arcanea project with task contract, SIS awareness, and provenance."
-version: 0.1.0
+version: 0.2.0
 author: Arcanea
 license: MIT
 metadata:
@@ -15,25 +15,16 @@ Use when the user wants to begin, resume, or clarify an Arcanea project.
 
 ## Steps
 
-1. Identify the project, repo, or creative/workflow surface.
-2. Check local context before asking the user to repeat themselves:
-   - repo `AGENTS.md`, `CLAUDE.md`, `llms.txt`
-   - latest planning/current-state docs
-   - SIS or Arcanea memory surfaces if available
-3. Create a task contract:
-   - Scope
-   - Owner
-   - Files
-   - Non-goals
-   - Acceptance criteria
-   - Verification
-   - Rollback
-4. Choose the right execution surface:
-   - Hermes for local desktop/gateway/profile/MCP workflows
-   - Codex for verified repo surgery
-   - Claude/Arcanea Flow for higher-order swarms
-   - Arcanea Code/OpenCode for native coding CLI flow
-   - Gemini/Antigravity for long-context/multimodal synthesis
+1. Identify the project, repo, or creative surface.
+2. Load context before asking the user to repeat themselves:
+   - `AGENTS.md`, `CLAUDE.md`, `llms.txt`
+   - latest `planning-with-files/CURRENT_STATE_*`
+   - SIS vaults if `ARCANEA_SIS_HOME` is set
+3. Create a task contract: scope, owner, files, non-goals, acceptance, verification, rollback.
+4. Route execution:
+   - Hermes Desktop for local gateway/profile/MCP
+   - Grok Build for image/video
+   - Claude/Codex for verified repo surgery
 5. Execute only the agreed safe slice.
 6. Report provenance and verification evidence.
 
@@ -48,10 +39,3 @@ Execution surface:
 Verification:
 Next action:
 ```
-
-## Guardrails
-
-- Do not invent shipped capabilities.
-- Do not write secrets into files.
-- Do not replace native harnesses with Hermes when a native harness is clearly better.
-- Prefer extension points over Hermes core patches.

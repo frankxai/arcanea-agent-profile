@@ -2,9 +2,7 @@
   "mcp_servers": {
     "arcanea_registry": {
       "command": "node",
-      "args": [
-        "C:/Users/frank/Arcanea/packages/arcanea-registry-mcp/dist/cli.js"
-      ],
+      "args": ["${ARCANEA_REPO}/packages/arcanea-registry-mcp/dist/cli.js"],
       "env": {
         "SUPABASE_URL": "${SUPABASE_URL}",
         "SUPABASE_SERVICE_ROLE_KEY": "${SUPABASE_SERVICE_ROLE_KEY}"

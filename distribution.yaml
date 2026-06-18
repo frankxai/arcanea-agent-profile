@@ -1,31 +1,24 @@
 name: arcanea-agent
-version: 0.1.0
-description: "Arcanea local-first creative intelligence profile for Hermes Agent."
-author: "Frank Riemer / Arcanea"
-license: "MIT"
-hermes_requires: ">=0.16.0"
-
-# This distribution should never ship auth.json, .env, memories, sessions, logs,
-# or user workspace data. Hermes profile distributions already exclude those by
-# default; keep this manifest explicit for human reviewers.
+version: 0.2.0
+description: Arcanea creative intelligence profile for Hermes Agent Desktop — worlds, characters, books, research, Content Studio workflows.
+hermes_requires: '>=0.16.0'
+author: Frank Riemer / Arcanea
+license: MIT
+env_requires:
+  - name: ARCANEA_SIS_HOME
+    description: Optional local SIS home for continuity integration.
+    required: false
+    default: ''
+  - name: OPENROUTER_API_KEY
+    description: Optional BYOK for model routing fallbacks.
+    required: false
+    default: ''
 distribution_owned:
   - SOUL.md
   - config.yaml
   - mcp.json
-  - skills/
+  - cards.yaml
+  - skills
   - README.md
   - distribution.yaml
-
-env_requires:
-  - name: SUPABASE_URL
-    description: "Optional Arcanea Registry backend URL for registry MCP dogfood."
-    required: false
-    default: ""
-  - name: SUPABASE_SERVICE_ROLE_KEY
-    description: "Optional local/dev registry MCP service key. Never required for normal users."
-    required: false
-    default: ""
-  - name: ARCANEA_SIS_HOME
-    description: "Optional local SIS home path for Arcanea continuity integration."
-    required: false
-    default: "C:/Users/frank/Starlight-Intelligence-System"
+source: github.com/frankxai/arcanea-agent-profile

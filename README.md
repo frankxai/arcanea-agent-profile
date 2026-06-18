@@ -1,61 +1,67 @@
 # Arcanea Agent Profile
 
-Installable Hermes profile distribution for Arcanea Agent.
+Hermes Agent Desktop profile for Arcanea — worlds, characters, books, research, and Content Studio workflow cards.
 
-This repo intentionally contains only the profile layer: Arcanea identity, safe config defaults, optional MCP wiring, and Arcanea skills. It does **not** include Hermes core code, provider credentials, sessions, memories, logs, or private Arcanea secrets.
+## Quick install (Plan B — ship now)
 
-## Install
+### 1. Install Hermes Agent + Desktop
+
+Download from [Hermes Agent](https://hermes-agent.nousresearch.com/) (Windows EXE, macOS DMG, or Linux terminal install).
+
+### 2. Install this profile
+
+From the Arcanea monorepo (dev):
+
+```bash
+hermes profile install ./profiles/arcanea-agent --name arcanea-agent --alias --force -y
+```
+
+From GitHub (users):
 
 ```bash
 hermes profile install github.com/frankxai/arcanea-agent-profile --name arcanea-agent --alias --force -y
-arcanea-agent chat
 ```
 
-If you do not want a shell alias:
+### 3. Launch
 
 ```bash
-hermes profile install github.com/frankxai/arcanea-agent-profile --name arcanea-agent --force -y
-hermes -p arcanea-agent chat
+arcanea-agent chat
+# or
+hermes -p arcanea-agent desktop
 ```
+
+One-shot Windows installer (from Arcanea repo):
+
+```powershell
+.\scripts\install-arcanea-agent.ps1
+```
+
+## Session types
+
+| Launcher | Skill |
+|----------|-------|
+| New World | `arcanea-new-world` |
+| New Character | `arcanea-new-character` |
+| New Book | `arcanea-new-book` |
+| New Research | `arcanea-new-research` |
+| Workflow card | `arcanea-workflow-cards` |
+
+## Model defaults
+
+- **grok-4.3** — default chat + fast research
+- **grok-build** — image/video (via skills)
+- **claude-opus-4-7** — canon/character (when user has Anthropic auth)
 
 ## What ships
 
-- `distribution.yaml` — Hermes profile distribution manifest
-- `SOUL.md` — Arcanea Agent identity and operating doctrine
-- `config.yaml` — safe local-first defaults
-- `mcp.json` — optional Arcanea MCP reference config
-- `skills/arcanea-start/SKILL.md` — starter project-resume/task-contract workflow
+- `SOUL.md` — identity + session launcher
+- `config.yaml` — safe defaults
+- `cards.yaml` — Content Studio workflow cards
+- `skills/` — six Arcanea skills
+- `mcp.json` — optional registry MCP reference
 
-## Arcanea Registry MCP
+## Relationship
 
-The profile includes an `arcanea_registry` MCP entry in `config.yaml`, but it is disabled by default until the local registry MCP package and environment are ready.
-
-Expected local dev artifact:
-
-```text
-C:/Users/frank/Arcanea/packages/arcanea-registry-mcp/dist/cli.js
-```
-
-Build it from the Arcanea monorepo:
-
-```bash
-cd C:/Users/frank/Arcanea/packages/arcanea-registry-mcp
-pnpm install
-pnpm run build
-```
-
-Then enable/test from the installed profile after setting any required env vars:
-
-```bash
-hermes -p arcanea-agent mcp list
-hermes -p arcanea-agent mcp test arcanea_registry
-```
-
-## Relationship to Arcanea Agent
-
-This repo is the installable profile-distribution companion to the full Arcanea Agent fork:
-
-- Fork/product surface: https://github.com/frankxai/arcanea-agent
-- Upstream foundation: https://github.com/NousResearch/hermes-agent
-
-The strategic rule remains: profile/skills/MCP/plugins first, thin desktop fork later only if the product loop proves it needs one.
+- Product page: https://arcanea.ai/agent
+- Upstream: https://github.com/NousResearch/hermes-agent
+- Profile repo: https://github.com/frankxai/arcanea-agent-profile

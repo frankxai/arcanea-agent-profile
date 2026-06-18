@@ -1,0 +1,52 @@
+# Arcanea Content Studio workflow cards — invoked via arcanea-workflow-cards skill.
+version: 0.2.0
+
+cards:
+  - id: canon-audit
+    title: Canon Audit
+    description: Validate draft against CANON_LOCKED; produce diff report.
+    skill: arcanea-start
+    task_class: world.canon
+    models: [claude-opus-4-7, grok-4.3]
+
+  - id: mythology-echo
+    title: Mythology Echo
+    description: Research real mythology and map echoes to your world graph.
+    skill: arcanea-new-research
+    task_class: research.deep
+    models: [grok-4.3, claude-opus-4-7]
+
+  - id: character-portrait
+    title: Character Portrait
+    description: Generate canon-consistent character art prompt + image gen handoff.
+    skill: arcanea-new-character
+    task_class: media.image
+    models: [grok-build]
+
+  - id: world-art
+    title: World Art
+    description: Location or faction visual from prose description.
+    skill: arcanea-new-world
+    task_class: media.image
+    models: [grok-build]
+
+  - id: chapter-draft
+    title: Chapter Draft
+    description: Outline to scene prose in established voice.
+    skill: arcanea-new-book
+    task_class: world.character
+    models: [claude-opus-4-7, grok-4.3]
+
+  - id: publish-pack
+    title: Publish Pack
+    description: Hand off to Publishing House profile for production pipeline.
+    skill: arcanea-new-book
+    profile: publishing-house
+    task_class: orchestrate
+
+  - id: research-synthesis
+    title: Research Synthesis
+    description: Parallel scouts → single synthesis doc with citations.
+    skill: arcanea-new-research
+    task_class: research.deep
+    models: [grok-4.3, claude-opus-4-7]

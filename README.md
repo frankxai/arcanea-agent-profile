@@ -1,67 +1,67 @@
-# Arcanea Agent Profile
+# Arcanea Agent
 
-Hermes Agent Desktop profile for Arcanea — worlds, characters, books, research, and Content Studio workflow cards.
+Local-first creative intelligence companion for [Hermes Agent](https://hermes-agent.nousresearch.com/). Worlds, characters, books, research, and Content Studio cards — on the official desktop, not a fork.
 
-## Quick install (Plan B — ship now)
+This repo is a **Hermes profile distribution**. Install it. Keep your own keys and memory.
 
-### 1. Install Hermes Agent + Desktop
+## Install
 
-Download from [Hermes Agent](https://hermes-agent.nousresearch.com/) (Windows EXE, macOS DMG, or Linux terminal install).
-
-### 2. Install this profile
-
-From the Arcanea monorepo (dev):
+1. Install [Hermes Desktop](https://hermes-agent.nousresearch.com/).
+2. In a terminal:
 
 ```bash
-hermes profile install ./profiles/arcanea-agent --name arcanea-agent --alias --force -y
+hermes profile install github.com/frankxai/arcanea-agent-profile --alias
 ```
 
-From GitHub (users):
-
-```bash
-hermes profile install github.com/frankxai/arcanea-agent-profile --name arcanea-agent --alias --force -y
-```
-
-### 3. Launch
+3. Launch:
 
 ```bash
 arcanea-agent chat
-# or
-hermes -p arcanea-agent desktop
+# or, from Hermes Desktop, open the Arcanea Agent bot
 ```
 
-One-shot Windows installer (from Arcanea repo):
+Update later without losing your chats:
 
-```powershell
-.\scripts\install-arcanea-agent.ps1
+```bash
+hermes profile update arcanea-agent
 ```
+
+Independent of Nous Research. Runtime behavior belongs to [hermes-agent](https://github.com/NousResearch/hermes-agent).
+
+## What you get
+
+| Piece | Role |
+|---|---|
+| `SOUL.md` | Companion identity + session launcher |
+| `skills/` | Start, world, character, book, research, workflow cards |
+| `cards.yaml` | Content Studio pipelines |
+| `skins/arcanea.yaml` | Arcanea look on CLI / TUI / desktop |
+| `config.yaml` | Safe BYOK defaults (no secrets) |
 
 ## Session types
 
-| Launcher | Skill |
-|----------|-------|
-| New World | `arcanea-new-world` |
-| New Character | `arcanea-new-character` |
-| New Book | `arcanea-new-book` |
-| New Research | `arcanea-new-research` |
-| Workflow card | `arcanea-workflow-cards` |
+Say **new session** or pick one:
 
-## Model defaults
+| Path | Skill | Creates |
+|---|---|---|
+| New World | `arcanea-new-world` | world manifest + scaffold |
+| New Character | `arcanea-new-character` | 12-field character sheet |
+| New Book | `arcanea-new-book` | book scaffold + chapter graph |
+| New Research | `arcanea-new-research` | brief + cited synthesis |
+| Workflow card | `arcanea-workflow-cards` | one Content Studio pipeline |
 
-- **grok-4.3** — default chat + fast research
-- **grok-build** — image/video (via skills)
-- **claude-opus-4-7** — canon/character (when user has Anthropic auth)
+## Defaults
 
-## What ships
+- Chat / fast research: the model you configure (bundle hint: Grok)
+- Image / video: your media model (bundle hint: Grok Build)
+- Canon / voice: your strongest writing model when available
+- Approvals: **manual** until you change them
 
-- `SOUL.md` — identity + session launcher
-- `config.yaml` — safe defaults
-- `cards.yaml` — Content Studio workflow cards
-- `skills/` — six Arcanea skills
-- `mcp.json` — optional registry MCP reference
+Bring your own keys. This distribution never ships `.env` or `auth.json`.
 
-## Relationship
+## Related
 
-- Product page: https://arcanea.ai/agent
-- Upstream: https://github.com/NousResearch/hermes-agent
-- Profile repo: https://github.com/frankxai/arcanea-agent-profile
+- Hosted product: [arcanea.ai](https://arcanea.ai)
+- Deeper skill packs: private `frankxai/arcanea-agent-skills` (when you have access)
+- Doctrine: Starlight Hermes Agent Product OS (`starlight-agent-config/core/products/`)
+- Do **not** install `frankxai/arcanea-agent` — that is a dormant runtime fork, not this product

@@ -1,0 +1,46 @@
+name: arcanea
+description: Arcanea Agent — void, lumen, warm gold. Not Hermes default.
+colors:
+  background: "#0B0A09"
+  banner_border: "#C4A574"
+  banner_title: "#F3E6C8"
+  banner_accent: "#E2C48A"
+  banner_dim: "#8A7A62"
+  banner_text: "#E8DCC4"
+  ui_accent: "#E2C48A"
+  ui_primary: "#F3E6C8"
+  ui_text: "#E8DCC4"
+  ui_label: "#C4A574"
+  ui_ok: "#6FBF8A"
+  ui_error: "#E06B5C"
+  ui_warn: "#E0A85C"
+  ui_border: "#3A342C"
+  ui_tool: "#E2C48A"
+  ui_thinking: "#8A7A62"
+  prompt: "#F3E6C8"
+  input_rule: "#C4A574"
+  response_border: "#C4A574"
+  session_label: "#C4A574"
+  session_border: "#3A342C"
+  status_bar_bg: "#141210"
+  status_bar_text: "#E8DCC4"
+  voice_status_bg: "#141210"
+  selection_bg: "#2A241C"
+  completion_menu_bg: "#141210"
+  completion_menu_current_bg: "#2A241C"
+  completion_menu_meta_bg: "#141210"
+  completion_menu_meta_current_bg: "#2A241C"
+spinner:
+  thinking_verbs:
+    - composing
+    - tracing
+    - weaving
+    - listening
+branding:
+  agent_name: Arcanea Agent
+  welcome: Arcanea Agent. Worlds, characters, books, research. Type a path or /help.
+  goodbye: Until the next session.
+  response_label: Arcanea
+  prompt_symbol: "✦"
+  help_header: Arcanea commands
+tool_prefix: "┊"

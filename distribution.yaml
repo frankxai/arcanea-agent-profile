@@ -1,24 +1,21 @@
 name: arcanea-agent
-version: 0.2.0
-description: Arcanea creative intelligence profile for Hermes Agent Desktop — worlds, characters, books, research, Content Studio workflows.
-hermes_requires: '>=0.16.0'
+version: 0.3.0
+description: Arcanea Agent — local-first creative companion for Hermes Desktop. Worlds, characters, books, research, Content Studio cards.
+hermes_requires: ">=0.16.0"
 author: Frank Riemer / Arcanea
 license: MIT
 env_requires:
   - name: ARCANEA_SIS_HOME
-    description: Optional local SIS home for continuity integration.
+    description: Optional local continuity home. Leave empty for a standalone install.
     required: false
-    default: ''
-  - name: OPENROUTER_API_KEY
-    description: Optional BYOK for model routing fallbacks.
-    required: false
-    default: ''
+    default: ""
 distribution_owned:
   - SOUL.md
   - config.yaml
   - mcp.json
   - cards.yaml
   - skills
+  - skins
   - README.md
   - distribution.yaml
 source: github.com/frankxai/arcanea-agent-profile

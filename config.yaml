@@ -1,5 +1,5 @@
-# Arcanea Agent profile — Hermes Desktop skin (Plan B ship).
-# Users keep provider credentials in Hermes; these are safe creative defaults.
+# Arcanea Agent — safe public defaults.
+# Users keep provider credentials in their own Hermes .env / auth.json.
 
 model:
   provider: xai
@@ -22,7 +22,10 @@ approvals:
 security:
   redact_secrets: true
 
-# Model routing hints (Hermes reads provider; skills enforce task-class picks)
+display:
+  skin: arcanea
+
+# Hints only. Skills pick task-class models from whatever the user has configured.
 routing:
   media.image: grok-build
   media.video: grok-build
@@ -30,15 +33,3 @@ routing:
   world.canon: claude-opus-4-7
   world.character: claude-opus-4-7
   code.implement: grok-build
-
-mcp_servers:
-  arcanea_registry:
-    command: node
-    args:
-      - "${ARCANEA_REPO}/packages/arcanea-registry-mcp/dist/cli.js"
-    env:
-      SUPABASE_URL: "${SUPABASE_URL}"
-      SUPABASE_SERVICE_ROLE_KEY: "${SUPABASE_SERVICE_ROLE_KEY}"
-    timeout: 120
-    connect_timeout: 60
-    enabled: false

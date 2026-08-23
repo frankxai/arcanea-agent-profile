@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1 — 2026-08-22
+
+- Templates for world, character, book.
+- `arcanea-canon-qa` skill.
+- Absorb-ready `docs/install.html`.
+- Desktop launcher pane plugin.
+
 ## 0.3.0 — 2026-08-22
 
 - Treat this repo as the public product agent, not a "Plan B" fork workaround.

@@ -17,7 +17,7 @@ Use when the user chooses **New World** or wants to scaffold a creative universe
 
 1. Ask for world name, genre, and one-sentence premise (skip if already given).
 2. Choose target directory (default: `./<slug>-world` or user's active project).
-3. Scaffold structure:
+3. Copy `templates/world.manifest.json` into the project and fill it. Do not invent a second schema.
    ```text
    world.manifest.json
    worldbuilding/geography.md

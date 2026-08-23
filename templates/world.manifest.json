@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "slug": "",
+  "premise": "",
+  "genre": "",
+  "canonStatus": "draft",
+  "createdAt": "",
+  "costOfMagic": "",
+  "entities": {
+    "characters": [],
+    "locations": [],
+    "factions": []
+  }
+}

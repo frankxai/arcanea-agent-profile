@@ -16,7 +16,7 @@ Use when the user chooses **New Character**.
 ## Steps
 
 1. Collect: name, role (protagonist/antagonist/supporting), world link (if any).
-2. Create `characters/<slug>.md` with 12 fields:
+2. Copy `templates/character.sheet.md` to `characters/<slug>.md` and fill the 12 fields.
 
 | Field | Content |
 |-------|---------|

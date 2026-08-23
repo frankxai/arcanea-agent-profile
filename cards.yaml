@@ -4,8 +4,8 @@ version: 0.3.1
 cards:
   - id: canon-audit
     title: Canon Audit
-    description: Validate draft against CANON_LOCKED; produce diff report.
-    skill: arcanea-start
+    description: Run canon QA on the active draft. Produce a findings table.
+    skill: arcanea-canon-qa
     task_class: world.canon
     models: [claude-opus-4-7, grok-4.3]
 
@@ -45,10 +45,9 @@ cards:
     models: [claude-opus-4-7, grok-4.3]
 
   - id: publish-pack
-    title: Publish Pack
-    description: Hand off to Publishing House profile for production pipeline.
+    title: Local Ship Pack
+    description: Write a local outline + chapter pack. Do not publish or send.
     skill: arcanea-new-book
-    profile: publishing-house
     task_class: orchestrate
 
   - id: research-synthesis

@@ -1,9 +1,5 @@
 # Arcanea Agent — safe public defaults.
-# Users keep provider credentials in their own Hermes .env / auth.json.
-
-model:
-  provider: xai
-  default: grok-4.3
+# Do not pin a provider. Users keep credentials in their own Hermes .env / auth.json.
 
 agent:
   max_turns: 90
@@ -24,12 +20,3 @@ security:
 
 display:
   skin: arcanea
-
-# Hints only. Skills pick task-class models from whatever the user has configured.
-routing:
-  media.image: grok-build
-  media.video: grok-build
-  research.quick: grok-4.3
-  world.canon: claude-opus-4-7
-  world.character: claude-opus-4-7
-  code.implement: grok-build

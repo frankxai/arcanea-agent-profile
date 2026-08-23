@@ -1,5 +1,5 @@
 name: arcanea-agent
-version: 0.3.1
+version: 0.3.2
 description: Arcanea Agent — local-first creative companion for Hermes Desktop. Worlds, characters, books, research, Content Studio cards.
 hermes_requires: ">=0.16.0"
 author: Frank Riemer / Arcanea

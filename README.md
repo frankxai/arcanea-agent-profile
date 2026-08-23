@@ -62,6 +62,4 @@ Bring your own keys. This distribution never ships `.env` or `auth.json`.
 ## Related
 
 - Hosted product: [arcanea.ai](https://arcanea.ai)
-- Deeper skill packs: private `frankxai/arcanea-agent-skills` (when you have access)
-- Doctrine: Starlight Hermes Agent Product OS (`starlight-agent-config/core/products/`)
 - Do **not** install `frankxai/arcanea-agent` — that is a dormant runtime fork, not this product

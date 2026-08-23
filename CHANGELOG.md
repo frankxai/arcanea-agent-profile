@@ -3,9 +3,10 @@
 ## 0.3.1 — 2026-08-22
 
 - Templates for world, character, book.
-- `arcanea-canon-qa` skill.
+- `arcanea-canon-qa` skill and `canon-qa` workflow card.
 - Absorb-ready `docs/install.html`.
 - Desktop launcher pane plugin.
+- Research skill requires a source URL or file path on every claim; refuse unsourced mythology dumps.
 
 ## 0.3.0 — 2026-08-22
 

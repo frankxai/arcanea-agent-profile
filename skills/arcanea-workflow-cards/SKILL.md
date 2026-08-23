@@ -18,6 +18,7 @@ Use when the user picks a workflow card or says "run card", "Content Studio", or
 | Card | Action |
 |------|--------|
 | **Canon Audit** | Validate against canon; diff report |
+| **Canon QA** | Cost / contradiction / slop audit via `arcanea-canon-qa` |
 | **Mythology Echo** | Research → echo mapping |
 | **Character Portrait** | Image gen via Grok Build |
 | **World Art** | Location/faction visual |

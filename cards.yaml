@@ -1,11 +1,18 @@
 # Arcanea Content Studio workflow cards — invoked via arcanea-workflow-cards skill.
-version: 0.2.0
+version: 0.3.1
 
 cards:
   - id: canon-audit
     title: Canon Audit
     description: Validate draft against CANON_LOCKED; produce diff report.
     skill: arcanea-start
+    task_class: world.canon
+    models: [claude-opus-4-7, grok-4.3]
+
+  - id: canon-qa
+    title: Canon QA
+    description: Audit a draft for cost, contradiction, and generic-fantasy slop.
+    skill: arcanea-canon-qa
     task_class: world.canon
     models: [claude-opus-4-7, grok-4.3]
 

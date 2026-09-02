@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Every SKILL.md has valid frontmatter
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const dirs = fs.existsSync('skills') ? fs.readdirSync('skills', { withFileTypes: true }).filter(d => d.isDirectory()) : [];
+          if (dirs.length === 0) { console.error('no skills/ directory to validate'); process.exit(1); }
+          const errors = [];
+          for (const d of dirs) {
+            const p = path.join('skills', d.name, 'SKILL.md');
+            if (!fs.existsSync(p)) { errors.push(`${d.name}: missing SKILL.md`); continue; }
+            const src = fs.readFileSync(p, 'utf8');
+            const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(src);
+            if (!m) { errors.push(`${p}: no YAML frontmatter block`); continue; }
+            const fm = Object.fromEntries(m[1].split(/\r?\n/)
+              .filter(l => /^[A-Za-z0-9_-]+:/.test(l))
+              .map(l => [l.slice(0, l.indexOf(':')).trim(), l.slice(l.indexOf(':') + 1).trim()]));
+            for (const k of ['name', 'description']) {
+              if (!fm[k]) errors.push(`${p}: frontmatter missing "${k}"`);
+            }
+            if (fm.name && fm.name !== d.name) errors.push(`${p}: frontmatter name "${fm.name}" != directory "${d.name}"`);
+            if (fm.description && fm.description.length < 20) errors.push(`${p}: description too short to route on`);
+            console.log(`ok ${p}`);
+          }
+          if (errors.length) { console.error('\n' + errors.join('\n')); process.exit(1); }
+          console.log(`\nvalidated ${dirs.length} skills`);
+          NODE
+      - name: JSON manifests parse
+        run: |
+          set -euo pipefail
+          find . -name '*.json' -not -path './node_modules/*' -print | while read -r f; do
+            node -e "JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'))" "$f" || { echo "INVALID JSON: $f"; exit 1; }
+          done
